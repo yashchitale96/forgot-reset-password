@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,7 +19,8 @@ const Signup = () => {
     e.preventDefault(); 
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/auth/signup",
+        // "http://localhost:4000/api/auth/signup",
+        "https://laughing-journey-xjgq6x9wgjx2v5v5-4000.app.github.dev/api/auth/signup",
         formData,
         { withCredentials: true } 
       );
@@ -78,6 +79,12 @@ const Signup = () => {
         <div>
           <button type="submit">Signup</button>
         </div>
+
+        <div style={{display:"flex", alignItems:"center", gap:"5px"}}>
+          <p>already have account?</p>
+          <Link to='/login'>login</Link>
+        </div>
+
       </form>
     </div>
   );
